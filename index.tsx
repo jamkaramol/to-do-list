@@ -1,31 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import List from './components/List/list';
 import './style.css';
+import AddNote from './components/AddNote/addNote';
+import useToDoList from './hooks/useToDoList';
 
-interface AppProps { }
-interface AppState {
-  name: string;
-}
-
-class App extends Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'React'
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
+function App() {
+  const { addToList, toDoList } = useToDoList();
+  return (
+    <div>
+      <h2> To list project</h2>
+      <AddNote addToList={addToList} />
+      <List toDoList={toDoList} />
+    </div>
+  );
 }
 
 render(<App />, document.getElementById('root'));
