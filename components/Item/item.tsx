@@ -1,11 +1,16 @@
 import React from 'react';
+import './item.css';
 
 const Item = ({ itemData, deleteNote }) => {
   return (
     <React.Fragment>
       <div key={itemData.id} className="note">
-        <span onClick={() => deleteNote(itemData.id)}>x</span>
-        {itemData.content}
+        <div className="content">{itemData.content}</div>
+        <div className="actions">
+          <div className="delete-note" onClick={() => deleteNote(itemData.id)}>
+            x
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );

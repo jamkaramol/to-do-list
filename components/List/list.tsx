@@ -12,7 +12,9 @@ const list = ({ toDoList, deleteNote }: List) => {
     <React.Fragment>
       <div className="list-view">
         {toDoList.length > 0 &&
-          toDoList.map(l => <Item itemData={l} deleteNote={deleteNote} />)}
+          toDoList.map(l => (
+            <Item key={l.id} itemData={l} deleteNote={deleteNote} />
+          ))}
       </div>
     </React.Fragment>
   );
