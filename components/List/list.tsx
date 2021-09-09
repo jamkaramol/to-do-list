@@ -1,15 +1,19 @@
 import React from 'react';
 import './list.css';
+import Item from '../Item/item';
 
-const list = ({ toDoList = [] }: { toDoList: string[] }) => {
+type List = {
+  toDoList: Object[];
+  deleteNote: (id: string) => void;
+};
+
+const list = ({ toDoList, deleteNote }: List) => {
   return (
     <React.Fragment>
-      {toDoList.length &&
-        toDoList.map((a, i) => (
-          <p key={i} className="note">
-            {a}
-          </p>
-        ))}
+      <div className="list-view">
+        {toDoList.length > 0 &&
+          toDoList.map(l => <Item itemData={l} deleteNote={deleteNote} />)}
+      </div>
     </React.Fragment>
   );
 };

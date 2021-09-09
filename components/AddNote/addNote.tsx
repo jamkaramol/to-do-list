@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './addNote.css';
 
 const addNote = ({ addToList }: { addToList: (note: string) => void }) => {
-  const [note, setNote] = useState('type here');
+  const [note, setNote] = useState('');
 
   const addNoteHandler = () => {
     addToList(note);
@@ -12,8 +12,19 @@ const addNote = ({ addToList }: { addToList: (note: string) => void }) => {
   return (
     <React.Fragment>
       <div className="box">
-        <button onClick={addNoteHandler}>Add Note</button>
-        <textarea value={note} onChange={e => setNote(e.target.value)} />
+        <button
+          className="add-note"
+          disabled={!note.length}
+          onClick={addNoteHandler}
+        >
+          +
+        </button>
+        <textarea
+          placeholder="Please type to add"
+          className="note-area"
+          value={note}
+          onChange={e => setNote(e.target.value)}
+        />
       </div>
     </React.Fragment>
   );

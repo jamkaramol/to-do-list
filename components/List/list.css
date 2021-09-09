@@ -1,5 +1,15 @@
 .note {
   padding: 10px;
-  margin: 10px;
+  margin: 1px;
   background: #eee;
+  border-radius: 5px;
+  min-height: 50px;
+}
+
+.list-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: inherit;
 }
