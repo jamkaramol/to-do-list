@@ -17,7 +17,7 @@ const exampleList = [
   { content: 'Example test5', id: uuidv4() },
   { content: 'Example note', id: uuidv4() },
   { content: 'Example test', id: uuidv4() },
-  { content: 'Example --0--0--0-', id: uuidv4() }
+  { content: 'Important note', id: uuidv4() }
 ];
 
 const useToDoList = (): toDoHook => {

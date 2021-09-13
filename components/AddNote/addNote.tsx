@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './addNote.css';
+import Button from '@material-ui/core/Button';
 
 const addNote = ({ addToList }: { addToList: (note: string) => void }) => {
   const [note, setNote] = useState('');
@@ -12,13 +13,14 @@ const addNote = ({ addToList }: { addToList: (note: string) => void }) => {
   return (
     <React.Fragment>
       <div className="box">
-        <button
+        <Button
+          variant="contained"
           className="add-note"
           disabled={!note.length}
           onClick={addNoteHandler}
         >
           +
-        </button>
+        </Button>
         <textarea
           placeholder="Please type to add"
           className="note-area"
